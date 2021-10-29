@@ -11,19 +11,28 @@ var enemyAttack = 12;
 var fight = function() {
     window.alert("Welcome to Robot Gladiators!");
 
-    /*Suntract the value of playerAttack from the value of
-    enemyHealth and use that result to update the value in the
-    enemy health variable*/
-    enemyHealth = enemyHealth - playerAttack
-    //log a resulting message to the console for confirmation
+    enemyHealth = enemyHealth - playerAttack;
     console.log(
         playerName + " attacked " + enemyName + " . " + enemyName + " now has " + enemyHealth + " health remaining."
     );
-    //do step 1 again but for playerHealth and enemyAttack
-        playerHealth = playerHealth - enemyAttack;
-    //log another message
-    enemyName + " attacked " + playerName + "." + playerName + " now has " + playerHealth + " health remaining."
-  };
+        if (enemyHealth <=0) {
+            window.alert(enemyName + " has died!");
+        }
+        else {
+            window.alert(enemyName + " still has " + enemyHealth + " left.");
+        }
 
-  
+        playerHealth = playerHealth - enemyAttack;
+    console.log(
+        enemyName + " attacked " + playerName + "." + playerName + " now has " + playerHealth + " health remaining."
+    );    
+    if (playerHealth <=0) {
+        window.alert(playerName + " has died!");
+    }
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left.");
+    }
+};
+
+
 fight();
